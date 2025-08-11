@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ntiamoah Herbal Company</title>
+  <link rel="stylesheet" href="NHC.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">Ntiamoah Herbal Company</div>
+      <nav>
+        <a href="#products" id="navProducts">Products</a>
+        <a href="#contact" id="navContact">Contact</a>
+      </nav>
+    </header>
+
+    <section class="hero" id="hero">
+      <h1>Nature’s Power, Your Wellness</h1>
+      <p>
+        Welcome to Ntiamoah Herbal Company, your trusted source for authentic herbal remedies. Discover our premium blends crafted for your health and vitality.
+      </p>
+      <button id="exploreBtn">Explore Products</button>
+    </section>
+
+    <section id="products" class="products">
+      <div class="product-card" id="mixtureCard">
+        <img src="herbal-mixture.png" alt="Ntiamoah Herbal Mixture" />
+        <h2>Ntiamoah Herbal Mixture</h2>
+        <p>
+          A potent blend of natural herbs for general wellness, immune support, and digestive health. Trusted by thousands for its effectiveness.
+        </p>
+        <button class="detailsBtn" data-product="mixture">Show Details</button>
+        <div class="details" id="mixtureDetails" style="display:none;">
+          <ul>
+            <li>100% Natural Ingredients</li>
+            <li>Supports Immunity</li>
+            <li>Improves Digestion</li>
+          </ul>
+          <button class="closeBtn" data-product="mixture">Close</button>
+        </div>
+      </div>
+      <div class="product-card" id="bittersCard">
+        <img src="koo-bitters.png" alt="Ntiamoah Koo Bitters" />
+        <h2>Ntiamoah Koo Bitters</h2>
+        <p>
+          Our signature bitters, expertly formulated to aid detoxification, boost energy, and promote a healthy lifestyle. 100% herbal, no additives.
+        </p>
+        <button class="detailsBtn" data-product="bitters">Show Details</button>
+        <div class="details" id="bittersDetails" style="display:none;">
+          <ul>
+            <li>Detoxifies Naturally</li>
+            <li>Boosts Energy</li>
+            <li>No Artificial Additives</li>
+          </ul>
+          <button class="closeBtn" data-product="bitters">Close</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="contact">
+      <h3>Contact Us</h3>
+      <form id="contactForm">
+        <label for="name">Name:</label>
+        <input id="name" name="name" type="text" required>
+        <br>
+        <label for="email">Email:</label>
+        <input id="email" name="email" type="email" required>
+        <br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+        <br>
+        <button type="submit">Send Message</button>
+      </form>
+      <div id="formResponse" style="display:none;"></div>
+      <p>
+        Phone: <a href="tel:+233240000000">+233 24 000 0000</a> <br>
+        Email: <a href="mailto:info@ntiamoahherbal.com">info@ntiamoahherbal.com</a> <br>
+        Address: Abrepo, Kumasi, Ghana
+      </p>
+      <p>
+        Follow us on 
+        <a href="#">Facebook</a> | 
+        <a href="#">Instagram</a>
+      </p>
+    </section>
+  </div>
+  <script>
+    // Smooth scroll navigation
+    document.getElementById('navProducts').onclick = function(e) {
+      e.preventDefault();
+      document.getElementById('products').scrollIntoView({behavior: 'smooth'});
+    };
+    document.getElementById('navContact').onclick = function(e) {
+      e.preventDefault();
+      document.getElementById('contact').scrollIntoView({behavior: 'smooth'});
+    };
+    document.getElementById('exploreBtn').onclick = function() {
+      document.getElementById('products').scrollIntoView({behavior: 'smooth'});
+    };
+
+    // Product details toggle
+    document.querySelectorAll('.detailsBtn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var product = btn.getAttribute('data-product');
+        document.getElementById(product + 'Details').style.display = 'block';
+      });
+    });
+    document.querySelectorAll('.closeBtn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var product = btn.getAttribute('data-product');
+        document.getElementById(product + 'Details').style.display = 'none';
+      });
+    });
+
+    // Contact form interaction
+    document.getElementById('contactForm').onsubmit = function(e) {
+      e.preventDefault();
+      var name = document.getElementById('name').value.trim();
+      var email = document.getElementById('email').value.trim();
+      var message = document.getElementById('message').value.trim();
+      var response = document.getElementById('formResponse');
+      if(name && email && message) {
+        response.style.display = 'block';
+        response.textContent = 'Thank you, ' + name + '! Your message has been received.';
+        document.getElementById('contactForm').reset();
+      } else {
+        response.style.display = 'block';
+        response.textContent = 'Please fill in all fields.';
+      }
+    };
