@@ -258,4 +258,54 @@ nav a:hover {
   .container {
     padding: 1rem;
   }
-  .hero
+/* Ultra Herbs Section Styles */
+#why-choose-ultra-herbs {
+  background-color: #f5fff5; /* light green background */
+  padding: 40px 20px;
+  font-family: 'Segoe UI', sans-serif;
+  border-top: 4px solid #ffa500; /* orange accent line */
+}
+
+#why-choose-ultra-herbs h2 {
+  color: #228B22; /* forest green */
+  font-size: 2em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#why-choose-ultra-herbs ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+#why-choose-ultra-herbs li {
+  background-color: #ffffff;
+  border-left: 6px solid #ffa500; /* orange accent */
+  margin-bottom: 20px;
+  padding: 20px;
+  box-shadow: 0 2px 6px rgba(0, 128, 0, 0.1); /* subtle green shadow */
+  transition: transform 0.3s ease;
+}
+
+#why-choose-ultra-herbs li:hover {
+  transform: scale(1.02);
+}
+
+#why-choose-ultra-herbs li strong {
+  color: #006400; /* dark green */
+  font-size: 1.2em;
+}
+
+.made-in-usa-image {
+  text-align: center;
+  margin-top: 30px;
+}
+
+.made-in-usa-image img {
+  max-width: 150px;
+  height: auto;
+  border: 3px solid #ffa500; /* orange border */
+  border-radius: 8px;
+}
